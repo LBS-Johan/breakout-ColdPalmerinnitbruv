@@ -15,12 +15,12 @@ public class MovementBouncer : MonoBehaviour
     void Update()
     {
         myrigidbody.velocity = new Vector2(0, 0);
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             myrigidbody.velocity = new Vector2(5, 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             myrigidbody.velocity = new Vector2(-5, 0);
         }
