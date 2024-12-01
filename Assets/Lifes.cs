@@ -5,7 +5,9 @@ using UnityEngine;
 public class Lifes : MonoBehaviour
 {
     Rigidbody2D rb;
-    int Lives = 5;
+    int Lives = 3;
+
+    public GameObject[] liveImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +22,27 @@ public class Lifes : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.CompareTag("Bottom Wall"))
         {
-            Lives--;
+
+            if(Lives <= 0)
+            {
+                GameOver();
+            }
+            else
+            {
+                Lives--;
+                liveImage[Lives].SetActive(false);
+            }
+
+
         }
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Game Over");
     }
 
 
