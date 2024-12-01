@@ -5,6 +5,8 @@ using UnityEngine;
 public class MovementBouncer : MonoBehaviour
 {
     Rigidbody2D myrigidbody;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class MovementBouncer : MonoBehaviour
             myrigidbody.velocity = new Vector2(-5, 0);
         }
 
+       
 
     }
 
