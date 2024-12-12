@@ -6,6 +6,7 @@ public class Score : MonoBehaviour
 {
     int score = 0;
     Rigidbody2D rb;
+    public TMPro.TextMeshProUGUI scoreTxt;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Score : MonoBehaviour
         if (collision.gameObject.CompareTag("Bricks"))
         {
             score += 10;
+            scoreTxt.text = score.ToString("00000");
         }
     }
 }

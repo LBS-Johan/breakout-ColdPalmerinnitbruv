@@ -6,8 +6,7 @@ public class Lifes : MonoBehaviour
 {
     Rigidbody2D rb;
     int Lives = 3;
-
-    public GameObject[] liveImage;
+    public GameObject livesContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +32,7 @@ public class Lifes : MonoBehaviour
             else
             {
                 Lives--;
-                liveImage[Lives].SetActive(false);
+                livesContainer.transform.GetChild(Lives-1).gameObject.SetActive(false);
             }
 
 
