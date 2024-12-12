@@ -25,15 +25,12 @@ public class Lifes : MonoBehaviour
         if (collision.gameObject.CompareTag("Bottom Wall"))
         {
 
-            if(Lives <= 0)
-            {
-                GameOver();
-            }
-            else
-            {
-                Lives--;
-                livesContainer.transform.GetChild(Lives-1).gameObject.SetActive(false);
-            }
+            Lives--;
+            livesContainer.transform.GetChild(Lives - 1).gameObject.SetActive(false);
+
+           
+
+           
 
 
         }
@@ -42,6 +39,12 @@ public class Lifes : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Game Over");
+
+        if (Lives <= 0)
+        {
+            GameOver();
+
+        }
     }
 
 
