@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Lifes : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class Lifes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Lives <= 0)
+        {
+            LoadGameOverScene();
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -25,7 +29,7 @@ public class Lifes : MonoBehaviour
         if (collision.gameObject.CompareTag("Bottom Wall"))
         {
 
-            Lives--;
+            LoseLife();
             livesContainer.transform.GetChild(Lives - 1).gameObject.SetActive(false);
 
            
@@ -36,16 +40,27 @@ public class Lifes : MonoBehaviour
         }
     }
 
-    void GameOver()
+
+    public void LoseLife()
     {
-        Debug.Log("Game Over");
-
-        if (Lives <= 0)
-        {
-            GameOver();
-
-        }
+        Lives--;
     }
 
+    void LoadGameOverScene()
+    {
+        SceneManager.LoadScene("GameOverScene");
+    }
+    
+    
+       
+
+        
+        
+            
+
+        
+    
+
+    
 
 }
